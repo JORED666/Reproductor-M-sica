@@ -1,0 +1,28 @@
+<div class="p-6 text-white">
+  <button routerLink="/" class="mb-4 text-green-400 hover:underline">← Volver</button>
+
+  <div *ngIf="artist" class="flex items-center gap-6 mb-8">
+    <img [src]="artist.images[0]?.url" class="w-48 h-48 rounded-full" />
+    <div>
+      <h1 class="text-4xl font-bold">{{ artist.name }}</h1>
+      <p class="text-gray-400">{{ artist.followers.total | number }} seguidores</p>
+      <p class="text-gray-400 capitalize">{{ artist.genres.join(', ') }}</p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4">Top canciones</h2>
+  <div class="grid grid-cols-4 gap-4 mb-10">
+    <div *ngFor="let track of topTracks" class="bg-neutral-800 p-3 rounded-lg hover:bg-neutral-700 transition">
+      <img [src]="track.album.images[0]?.url" class="rounded-md w-full h-44 object-cover mb-2" />
+      <p class="font-semibold text-sm">{{ track.name }}</p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4">Álbumes</h2>
+  <div class="grid grid-cols-5 gap-4">
+    <div *ngFor="let album of albums" class="bg-neutral-800 p-3 rounded-lg hover:bg-neutral-700 transition">
+      <img [src]="album.images[0]?.url" class="rounded-md w-full h-44 object-cover mb-2" />
+      <p class="font-semibold text-sm">{{ album.name }}</p>
+    </div>
+  </div>
+</div>

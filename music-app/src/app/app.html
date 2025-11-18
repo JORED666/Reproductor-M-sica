@@ -1,0 +1,20 @@
+<div class="h-screen w-screen bg-neutral-900 text-neutral-100 grid"
+     style="grid-template-columns: 260px 1fr; grid-template-rows: 56px 1fr;">
+
+  <!-- Sidebar -->
+  <aside class="row-span-2 col-span-1 bg-black/50 border-r border-neutral-800 p-4">
+    <!-- 🔹 Emitirá el texto al componente principal -->
+    <app-sidebar (search)="onSearch($event)"></app-sidebar>
+  </aside>
+
+  <!-- Topbar Player -->
+  <header class="col-span-1 bg-black/30 border-b border-neutral-800">
+    <app-topbar-player></app-topbar-player>
+  </header>
+
+  <!-- Main Content -->
+  <main class="col-span-1 overflow-y-auto p-6">
+    <!-- 🔹 Aquí van los resultados de búsqueda -->
+    <app-search-results></app-search-results>
+  </main>
+</div>
