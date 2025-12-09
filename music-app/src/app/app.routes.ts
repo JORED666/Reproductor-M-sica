@@ -6,8 +6,8 @@ import { PlaylistComponent } from './pages/playlist/playlist.component';
 
 export const routes: Routes = [
   { path: '', component: SearchResultsComponent },
-  { path: 'artist/:id', component: ArtistDetailsComponent }, // ✅ solo esta versión
+  { path: 'artist/:id', component: ArtistDetailsComponent },
   { path: 'album/:id', component: AlbumComponent },
   { path: 'playlist/:id', component: PlaylistComponent },
-  { path: '**', redirectTo: '' } // 🔹 siempre al final
+  { path: '**', redirectTo: '' } 
 ];

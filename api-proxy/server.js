@@ -8,15 +8,15 @@ dotenv.config();
 const app = express();
 const PORT = 3001;
 
-// ✅ Permitir peticiones desde tu app Angular
+
 app.use(cors({
-  origin: [/^http:\/\/localhost:\d+$/], // permite cualquier puerto local
+  origin: [/^http:\/\/localhost:\d+$/], 
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 
-// ✅ Endpoint para generar el token de Spotify
+//Endpoint para generar el token de Spotify
 app.get("/token", async (req, res) => {
   const clientId = process.env.CLIENT_ID;
   const clientSecret = process.env.CLIENT_SECRET;
