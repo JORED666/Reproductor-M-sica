@@ -11,14 +11,13 @@ export class SpotifyService {
 
   constructor(private http: HttpClient) {}
 
-  // 🔹 Obtener token del proxy
   private getToken(): Observable<string> {
     return this.http.get<any>(this.proxyUrl).pipe(
       switchMap(data => from([data.access_token]))
     );
   }
 
-  // 🔹 Búsqueda general (track, artista, álbum)
+
   search(query: string): Observable<any> {
     return this.getToken().pipe(
       switchMap(token => {
@@ -29,7 +28,7 @@ export class SpotifyService {
     );
   }
 
-  // 🔹 Info de artista
+
   getArtist(id: string): Observable<any> {
     return this.getToken().pipe(
       switchMap(token => {
@@ -39,7 +38,7 @@ export class SpotifyService {
     );
   }
 
-  // 🔹 Canciones más populares del artista
+
   getArtistTopTracks(id: string): Observable<any> {
     return this.getToken().pipe(
       switchMap(token => {
@@ -49,7 +48,7 @@ export class SpotifyService {
     );
   }
 
-  // 🔹 Álbumes del artista
+
   getArtistAlbums(id: string): Observable<any> {
     return this.getToken().pipe(
       switchMap(token => {
